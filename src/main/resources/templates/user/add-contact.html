@@ -1,0 +1,255 @@
+	<!DOCTYPE html>
+<html
+ data-th-replace="~{base::parent(~{::#content},~{::title})}"
+>
+<head>
+<meta charset="UTF-8">
+<title>add contact page</title>
+</head>
+<body>
+ 
+   <div id="content" class="pl-64 pt-20">
+   
+   <div>
+    <div data-th-if="${loggedInUser}">
+ <div data-th-replace="~{user/sidebar::sidebar}"></div>
+ </div>
+ </div>
+ 
+     <div class="grid grid-cols-12">
+     <div class="col-span-3"></div> 
+     <div class="col-span-6">
+      <div class="block  p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+      <h1 class="text-2xl text-white">Add Contact</h1>
+        
+        <form data-th-action="@{'/user/contact/addcontact'}"
+              data-th-object="${contactForm}"
+              method="post"
+              novalidate
+             enctype="multipart/form-data"
+        >
+          
+          <!-- name field -->	
+          
+          <div class="mt-5">
+          <label for="input-group-1" 
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Name</label>
+         <div class="relative mb-2">
+         <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+      <svg class="w-4 h-4 text-gray-50	0 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+  <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v1.2h19.2V19.2c0-3.2-6.4-4.8-9.6-4.8z"/>
+</svg>
+
+  </div>
+  <input type="text"
+   data-th-field="*{name}"
+   
+   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Name">
+</div> 
+
+<p data-th-if="${#fields.hasErrors('name')}"
+   data-th-errors="*{name}"
+   class="text-red-600">
+   
+   </p>
+
+  
+
+ </div>
+ 
+ 
+          <!-- Email -->
+          
+            
+          <div class="mt-5">
+          <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Email</label>
+         <div class="relative mb-2">
+         <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+       <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+        <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
+        <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
+       </svg>
+  </div>
+  <input type="text"
+   data-th-field="*{email}"
+   id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+   placeholder="name@gmail.com">
+ 
+</div> 
+   <p data-th-if="${#fields.hasErrors('email')}"
+       data-th-errors="*{email}"
+       class="text-red-600"
+    > 
+    
+    </p> 
+ </div>
+ 
+     <!-- phoneNumber -->
+          
+            
+          <div class="mt-5">
+          <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter PhoneNumber</label>
+         <div class="relative mb-2">
+         <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+     <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+  <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3.09 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.2 1.47.76 2.87 1.65 4.1a2 2 0 0 1-.45 2.6l-1.27 1a16 16 0 0 0 6.29 6.29l1-1.27a2 2 0 0 1 2.6-.45 13.13 13.13 0 0 0 4.1 1.65A2 2 0 0 1 22 16.92z"/>
+</svg>
+
+  </div>
+  <input type="text"
+   data-th-field="*{phoneNumber}"
+   id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Number">
+</div> 
+   <p data-th-if="${#fields.hasErrors('phoneNumber')}"
+       data-th-errors="*{phoneNumber}"
+       class="text-red-600">
+    
+    
+    </p> 
+ </div>
+ 
+    <!-- Address -->
+<div class="mt-5">
+  <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Address</label>
+  <div class="relative mb-2">
+    <div class="absolute inset-y-0 start-0 flex items-start pt-3 ps-3.5 pointer-events-none">
+      <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+      </svg>
+    </div>
+    <textarea 
+      data-th-field="*{address}"
+    id="address"
+      
+    rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Address"></textarea>
+  </div>
+     <p data-th-if="${#fields.hasErrors('address')}"
+       data-th-errors="*{address}"
+       class="text-red-600"
+    > 
+    
+    </p> 
+</div>
+
+ 
+   <!-- Description -->
+<div class="mt-5">
+  <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Description</label>
+  <div class="relative mb-6">
+    <div class="absolute inset-y-0 start-0 flex items-start pt-3 ps-3.5 pointer-events-none">
+      <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zm7 1.5L18.5 9H13a1 1 0 0 1-1-1V3.5zM8 13h8a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2zm0 4h5a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2z"/>
+      </svg>
+    </div>
+    <textarea 
+    data-th-field="*{description}"
+    id="description" rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Description"></textarea>
+  </div>
+</div>
+   
+         <!-- social link -->
+ 
+           <div class="flex gap-5">
+           
+           <div class="w-full">
+           <!-- websiteLink link -->
+           <div class="mt-5">
+         <div class="relative mb-6">
+         <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+ <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+  <circle cx="12" cy="12" r="10" />
+  <path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20" />
+</svg>
+
+
+
+  </div>
+  <input 
+   data-th-field="*{websiteLink}"
+  type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="http://www.google.com">
+</div> 
+ </div>
+           </div>
+           <!-- linkedin -->
+           <div class="w-full">
+                        <div class="mt-5">
+         <div class="relative mb-6">
+         <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+  <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+  <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0H12v2.38c.68-1.28 2.34-2.63 4.5-2.63 4.8 0 5.67 3.14 5.67 7.22V24h-5v-7.5c0-2.02-.04-4.63-3-4.63-3 0-3.47 2.22-3.47 4.5V24H7.5V8z"/>
+</svg>
+
+
+  </div>
+  <input 
+  
+  type="text" 
+  data-th-field="*{linkedInLink}"
+  id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Linked Link">
+</div> 
+ </div>
+           </div>
+           </div>
+           
+           <!-- Contact image field -->
+           
+           <div class="mb-3">
+           
+<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Contact Image</label>
+<input
+ id="image_file_input" 
+class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" 
+data-th-field="*{contactImage}"
+type="file">
+
+
+<p data-th-if="${#fields.hasErrors('contactImage')}"
+   data-th-errors="*{contactImage}"
+   class="text-red-600">
+   
+   </p>
+
+ 
+   <img  class="max-h-52 mx-auto"  alt="" src="" id="upload_image_preview">
+           
+           </div>
+            
+           <!-- check box -->
+           
+           <div class="flex items-center mb-4">
+    <input id="default-checkbox" 
+       data-th-field="*{favorite}"
+    
+    type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+    <label for="default-checkbox" 
+    class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Is this your favorite contact?</label>
+</div>
+
+         <!-- button -->
+         
+         <div class="button-container text-center flex justify-center space-x-20">
+                  <button
+                    type="submit"
+                    class="px-3 py-2 dark:bg-blue-600 hover:dark:bg-blue-700 rounded bg-black text-white"
+                  >
+                    Add Contact
+                  </button>
+                  <button
+                    type="reset"
+                    class="px-3 py-2 dark:bg-red-600 hover:dark:bg-red-700 rounded bg-black text-white"
+                  >
+                    Reset
+                  </button>
+                  
+                  </div>
+         
+        </form>
+      </div>
+     </div> 
+     </div>
+        <script data-th-src="@{'/js/admin.js'}"></script>
+     
+   </div>
+   
+</body>
+</html>

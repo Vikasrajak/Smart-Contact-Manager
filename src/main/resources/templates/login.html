@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html data-th-replace="~{base::parent(~{::#content},~{::title})}">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  
+</head>
+<body class="bg-gray-100 dark:bg-gray-900">
+
+<!-- ✅ Removed min-h-screen and items-center for better control -->
+<div id="content" class="flex justify-center mt-4 mb-10">
+
+  <div class="w-full max-w-md p-6 border-t-4 border-green-800 bg-white border border-gray-200 rounded-2xl shadow-md transition duration-300 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+
+    <h5 class="mb-3 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">
+      Login Here
+    </h5>
+
+    <!-- Login Form -->
+    <form method="post" data-th-action="@{'/authenticate'}" class="mt-5">
+
+      <!-- Email Field -->
+      <div class="mb-5">
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Your Email</label>
+        <input 
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter Your Email"
+          required
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+                 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+                 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+                 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+      </div>
+
+      <!-- Password Field -->
+      <div class="mb-5">
+        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Your Password</label>
+        <input 
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter Your Password"
+          required
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+                 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+                 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+                 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+      </div>
+
+      <!-- Buttons -->
+      <div class="mb-3 flex justify-center space-x-4">
+        <button type="submit" class="px-6 py-3 rounded bg-blue-600 hover:bg-blue-800 text-white transition duration-200">
+          Login
+        </button>
+        <button type="reset" class="px-6 py-3 rounded bg-red-600 hover:bg-red-800 text-white transition duration-200">
+          Reset
+        </button>
+      </div>
+
+    </form>
+    
+    <div class="social-buttons-container flex justify-center mt-5">
+     <a class="login-with-google-btn " data-th-href="@{'/oauth2/authorization/google'}">Login With Google</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html data-th-replace="~{base::parent(~{::#content},~{::title})}">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <script src="https://cdn.tailwindcss.com"></script> Only if Tailwind not included already
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 ">
+
+<div id="content" 
+class="min-h-screen flex items-center justify-center mt-4  ">
+
+  <div class="w-full max-w-md  p-6 border-t-4 border-green-800 bg-white border border-gray-200 rounded-2xl shadow-md transition duration-300 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+
+    <h5 class="mb-3 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">
+      Login Here
+    </h5>
+
+    Login Form
+    <form       
+    method="post"
+    data-th-action="@{'/authenticate'}"
+    class="mt-5"
+     > Add actual action/URL here
+
+      Email Field
+      <div class="mb-5">
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Your Email</label>
+        <input 
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter Your Email"
+          required
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+                 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+                 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+                 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+      </div>
+
+      Password Field
+      <div class="mb-5">
+        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Your Password</label>
+        <input 
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter Your Password"
+          required
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+                 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+                 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+                 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+      </div>
+
+      Buttons
+      <div class="mb-3 flex justify-center space-x-4">
+        <button type="submit" class="px-6 py-3 rounded bg-blue-600 hover:bg-blue-800 text-white transition duration-200">
+          Login
+        </button>
+        <button type="reset" class="px-6 py-3 rounded bg-red-600 hover:bg-red-800 text-white transition duration-200">
+          Reset
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
+ -->

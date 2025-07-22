@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html
+ xmlns:th="http://www.thymleaf.org"
+>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+   
+   
+    
+    <table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th>PhoneNumber</th>
+    <th>About</th>
+    <th>Profile Picture</th>
+  </tr>
+  <tr  th:each="user :${users}">
+    <td th:text="${user.name}"></td>
+    <td th:text ="${user.email}"></td>
+    <td th:text ="${user.password}"></td>
+    <td th:text ="${user.phoneNumber}"></td>
+    <td th:text ="${user.about}"></td>
+<td><img th:src="${user.profilePic}" width="100" height="100" /></td>
+    
+  </tr>
+
+
+</table>
+    
+    
+   
+</body>
+</html>
